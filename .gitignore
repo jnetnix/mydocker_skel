@@ -1,4 +1,9 @@
 .DS_Store
-*.~
+*~
+\#*#
 *.swp
-var/*
+app/log/*
+app/tmp/*
+var/log/*
+var/tmp/*
+local_config/secure/*

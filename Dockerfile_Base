@@ -1,0 +1,17 @@
+FROM ubuntu
+
+#
+##Platform
+#
+#RUN apt-get update --fix-missing
+RUN apt-get update --fix-missing ; \
+    apt-get -y install unzip rsync wget
+
+#
+##App
+#
+COPY app/ /opt/<APP>/
+RUN cat /opt/<APP>/etc/banner.txt >> /etc/motd ; \
+    echo "cat /etc/motd" >> /etc/profile
+WORKDIR /opt/<APP>/bin/
+CMD ["bash --login"]

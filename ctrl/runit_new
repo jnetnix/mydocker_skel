@@ -1,0 +1,28 @@
+#!/bin/bash
+source ./local_config/env.sh
+case "$1" in
+        dreg)
+          echo "Run DREG Image"
+          IM="$DREG/$USER/$APP"
+            ;;
+        *)
+          echo "Run Local Image"
+          IM="$USER/$APP"
+            ;;
+esac
+
+echo "Running a New $APP Container for $USER called $IM. Looking for ./run.sh inside the container."
+echo "Removing Old $APP for $IM."
+docker rm -f $APP
+echo "Running New $APP with $IM."
+
+docker run \
+  -e USER=$(cat ./local_config/secure/user.txt 2>/dev/null) \
+  -e PASS=$(cat ./local_config/secure/password.txt 2>/dev/null) \
+  -e SLEEP=60 \
+  --volume $PWD/var/tmp:/opt/$APP/tmp/  \
+  --volume $PWD/var/log:/opt/$APP/log/  \
+  --dns 10.20.32.7 \
+  --name $APP \
+  --hostname $APP \
+  $IM ./run.sh

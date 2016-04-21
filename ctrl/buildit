@@ -1,0 +1,22 @@
+#!/bin/bash
+source ./local_config/env.sh
+echo "Building a New $APP Container for $USER."
+sed s/\<APP\>/$APP/g ./Dockerfile_Base > ./Dockerfile
+docker build --rm -t $USER/$APP .
+
+case "$1" in
+        dreg)
+          echo "Build DREG Image - $APP"
+          D=$(date +%Y%m%d-%H%m%S%Z --utc)
+          docker tag $DREG/$USER/$APP $DREG/jhilving/$APP:$D
+          #New one
+          docker build --rm -t $DREG/$USER/$APP .
+          docker push $DREG/$USER/$APP
+            ;;
+        *)
+          echo "Build Local Image - $APP"
+          docker build --rm -t $USER/$APP .
+            ;;
+esac
+
+exit;
