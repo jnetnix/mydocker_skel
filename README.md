@@ -16,7 +16,7 @@ rsync \
   --update \
   -a \
   --exclude ".git" \
-./mydocker-skel/*
+./mydocker-skel/* \
 ~/workspace/<new_project>
 ```
 
