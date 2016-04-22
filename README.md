@@ -1,7 +1,5 @@
 #Docker Skeleton
 The Docker Skeleton is a way to dockerize your applications. 
-TODO: I need to add more content to the README explaining how it works.
-
 
 #Get the files local
 ```
@@ -11,12 +9,11 @@ git clone https://github.com/jnetnix/mydocker_skel.git
 #Put them into your new project folder.
 ```
 rsync \
+  -a \
   --verbose \
   --stats \
-  --update \
-  -a \
   --exclude ".git" \
-./mydocker-skel/* \
+./mydocker_skel/* \
 ~/workspace/<new_project>
 ```
 
