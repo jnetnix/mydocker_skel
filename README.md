@@ -98,7 +98,7 @@ total size is 39285  speedup is 0.97
 ```
 bash-3.2$ cd ./mydocker_skel_test/
 bash-3.2$ ./ctrl/buildit 
-Building a New docker_skel Container for jhilving.
+Building a New docker_skel Container for jnetnix.
 Sending build context to Docker daemon 54.27 kB
 Step 1 : FROM ubuntu
  ---> c88b54fedc4f
@@ -151,7 +151,7 @@ bash-3.2$
 ##Connect to your new container.
 ```
 bash-3.2$ ./ctrl/attachit 
-Entering a New docker_skel Container for jhilving. Exit will destroy
+Entering a New docker_skel Container for jnetnix. Exit will destroy
 Container.
 Run Local Image
 ---------------------------------------------------------------------------------------
@@ -167,7 +167,7 @@ Run Local Image
 #TODO: Modify the Banner to meet your App..
 
 History:
-  2016/04/21 - Shared My Docker Skel with github. j.hilving
+  2016/04/21 - Shared My Docker Skel with github. -jnetnix
                https://github.com/jnetnix/mydocker_skel.git
 root@docker_skel:/opt/docker_skel/bin# 
 ```
